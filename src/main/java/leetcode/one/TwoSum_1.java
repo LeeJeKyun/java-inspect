@@ -3,7 +3,7 @@ package leetcode.one;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TwoSum {
+public class TwoSum_1 {
 }
 
 class Solution_1 {
