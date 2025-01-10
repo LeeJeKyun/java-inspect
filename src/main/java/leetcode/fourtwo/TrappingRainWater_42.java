@@ -77,7 +77,7 @@ class Solution_mine {
         //volume(정답) 선언
         int volume = 0;
         for(int i=0; i<height.length; i++) {
-            int leftMax = height[i];
+            int leftMax = height[0];
             int rightMax = height[height.length-1];
             for(int j=0; j<=i; j++) {
                 if(leftMax < height[j]) leftMax = height[j];
@@ -85,8 +85,7 @@ class Solution_mine {
             for(int j=height.length-1; j>i; j--) {
                 if(rightMax < height[j]) rightMax = height[j];
             }
-//            System.out.println("leftMax = " + leftMax);
-//            System.out.println("rightMax = " + rightMax);
+
             if(leftMax >= rightMax && height[i] <= rightMax) volume += rightMax - height[i];
             else if(leftMax < rightMax && height[i] <= leftMax) volume += leftMax - height[i];
         }
