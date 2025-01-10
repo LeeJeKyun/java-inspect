@@ -36,18 +36,26 @@ class Solution_TwoPointer {
 
 class Solution_Stack {
     public int trap(int[] height) {
+        //스택 생성(LIFO)
         Deque<Integer> stack = new ArrayDeque<>();
+        //volume 선언(답)
         int volume = 0;
 
+        //배열길이만큼 진행
         for (int i = 0; i<height.length; i++) {
+            //스택이 비어있지 않고, 현재 인덱스의 배열이 스택값의 배열보다 큰 동안 진행
             while(!stack.isEmpty() && height[i] > height[stack.peek()]) {
+                //top = 현재 index의 바로 왼쪽 인덱스
                 Integer top = stack.pop();
 
                 if(stack.isEmpty()) break;
+                //거리 = 현재 인덱스 - 스택의 맨위값 - 1
                 int distance = i - stack.peek() - 1;
 
+                //물 = (현재 배열값, 스택값 주소의 배열값중 작은값) - 최대값
                 int waters = Math.min(height[i], height[stack.peek()]) - height[top];
 
+                //결과값에 거리 * 물을 더한다.
                 volume += distance * waters;
             }
 
