@@ -6,6 +6,11 @@ import java.util.Deque;
 
 public class TrappingRainWater_42 {
 
+    public static void main(String[] args) {
+        Solution_mine solutionMine = new Solution_mine();
+        System.out.println(solutionMine.trap(new int[]{1,1,0,2,1,0,1,3,2,1,2,1}));
+    }
+
 }
 
 class Solution_TwoPointer {
@@ -60,6 +65,26 @@ class Solution_Stack {
             }
 
             stack.push(i);
+        }
+        return volume;
+    }
+}
+
+class Solution_mine {
+    public int trap(int[] height) {
+        int volume = 0;
+        for(int i=0; i<height.length; i++) {
+            int leftMax = height[i];
+            int rightMax = height[height.length-1];
+            for(int j=0; j<=i; j++) {
+                if(leftMax < height[j]) leftMax = height[j];
+            }
+            for(int j=height.length-1; j>i; j--) {
+                if(rightMax < height[j]) rightMax = height[j];
+            }
+
+            if(leftMax >= rightMax) volume += rightMax - height[i];
+            else volume += leftMax - height[i];
         }
         return volume;
     }
