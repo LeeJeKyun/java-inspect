@@ -71,10 +71,13 @@ class Solution_Stack {
 }
 
 class Solution_mine {
+
+    //브루트포스로 로직 자체는 맞으나 시간복잡도가 높아 X
     public int trap(int[] height) {
+        //volume(정답) 선언
         int volume = 0;
         for(int i=0; i<height.length; i++) {
-            int leftMax = height[i];
+            int leftMax = height[0];
             int rightMax = height[height.length-1];
             for(int j=0; j<=i; j++) {
                 if(leftMax < height[j]) leftMax = height[j];
@@ -83,8 +86,8 @@ class Solution_mine {
                 if(rightMax < height[j]) rightMax = height[j];
             }
 
-            if(leftMax >= rightMax) volume += rightMax - height[i];
-            else volume += leftMax - height[i];
+            if(leftMax >= rightMax && height[i] <= rightMax) volume += rightMax - height[i];
+            else if(leftMax < rightMax && height[i] <= leftMax) volume += leftMax - height[i];
         }
         return volume;
     }

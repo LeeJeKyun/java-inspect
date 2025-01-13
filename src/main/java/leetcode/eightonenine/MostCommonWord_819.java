@@ -2,7 +2,7 @@ package leetcode.eightonenine;
 
 import java.util.*;
 
-public class MostCommonWord {
+public class MostCommonWord_819 {
     public static void main(String[] args) {
         String paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
         String[] banned = new String[]{"hit"};
