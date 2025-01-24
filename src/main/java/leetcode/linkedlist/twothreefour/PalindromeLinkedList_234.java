@@ -53,18 +53,18 @@ class Solution_03 {
             slow = slow.next;
         }
 
-        ListNode rev = null;
+        ListNode reverseHead = null;
         while (slow != null) {
-            ListNode next = slow.next;
-            slow.next = rev;
-            rev = slow;
-            slow = next;
+            ListNode temp = slow.next;
+            slow.next = reverseHead;
+            reverseHead = slow;
+            slow = temp;
         }
 
-        while (rev != null) {
-            if (rev.val != head.val)
+        while (reverseHead != null) {
+            if (reverseHead.val != head.val)
                 return false;
-            rev = rev.next;
+            reverseHead = reverseHead.next;
             head = head.next;
         }
         return true;
