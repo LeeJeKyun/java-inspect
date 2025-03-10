@@ -4,8 +4,8 @@ import java.util.*;
 
 public class MostCommonWord_819 {
     public static void main(String[] args) {
-        String paragraph = "Bob hit a ball, the hit BALL flew far after it was hit.";
-        String[] banned = new String[]{"hit"};
+        String paragraph = "a.";
+        String[] banned = new String[]{""};
 
         Solution solution = new Solution();
 
@@ -23,6 +23,9 @@ class Solution {
 
         //입력 문자열에서 단어 문자가 아닌 것을 공백으로 변환하고 모두 소문자로 변경 후 단어단위 배열로 변환한다.
         String[] words = paragraph.replaceAll("\\W+", " ").toLowerCase().split(" ");
+        for (String a : words) {
+            System.out.println("a = " + a);
+        }
 
         for (String w : words) {
             if(!ban.contains(w)) {
